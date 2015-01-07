@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20120306131941) do
+ActiveRecord::Schema.define(version: 20150107230655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,5 +51,18 @@ ActiveRecord::Schema.define(version: 20120306131941) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   add_index "versions", ["whodunnit"], name: "index_versions_on_whodunnit", using: :btree
+
+  create_table "workers", force: true do |t|
+    t.string   "name",           null: false
+    t.string   "last_name",      null: false
+    t.string   "identification", null: false
+    t.string   "address"
+    t.string   "phone"
+    t.string   "occupation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workers", ["identification"], name: "index_workers_on_identification", using: :btree
 
 end

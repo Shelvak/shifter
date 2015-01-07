@@ -1,0 +1,31 @@
+<h2><%= @worker %></h2>
+
+<p>
+  <strong><%= Worker.human_attribute_name 'name' %></strong>:
+  <%= @worker.name %>
+</p>
+<p>
+  <strong><%= Worker.human_attribute_name 'last_name' %></strong>:
+  <%= @worker.last_name %>
+</p>
+<p>
+  <strong><%= Worker.human_attribute_name 'identification' %></strong>:
+  <%= @worker.identification %>
+</p>
+<p>
+  <strong><%= Worker.human_attribute_name 'address' %></strong>:
+  <%= @worker.address %>
+</p>
+<p>
+  <strong><%= Worker.human_attribute_name 'phone' %></strong>:
+  <%= @worker.phone %>
+</p>
+<p>
+  <strong><%= Worker.human_attribute_name 'occupation' %></strong>:
+  <%= @worker.occupation %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_worker_path(@worker) if can? :update, @worker %> |
+  <%= link_to t('label.list'), workers_path %>
+</div>

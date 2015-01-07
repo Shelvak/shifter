@@ -29,7 +29,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari-bootstrap'
 
-
 group :development do
   gem 'thin'
 end

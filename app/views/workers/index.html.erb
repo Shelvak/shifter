@@ -1,0 +1,42 @@
+<% if @workers.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Worker.human_attribute_name 'name' %></th>
+        <th><%= Worker.human_attribute_name 'last_name' %></th>
+        <th><%= Worker.human_attribute_name 'identification' %></th>
+        <th><%= Worker.human_attribute_name 'address' %></th>
+        <th><%= Worker.human_attribute_name 'phone' %></th>
+        <th><%= Worker.human_attribute_name 'occupation' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @workers.each do |worker| %>
+        <tr>
+          <td><%= worker.name %></td>
+          <td><%= worker.last_name %></td>
+          <td><%= worker.identification %></td>
+          <td><%= worker.address %></td>
+          <td><%= worker.phone %></td>
+          <td><%= worker.occupation %></td>
+          <td><%= link_to_show worker %></td>
+          <td><%= link_to_edit edit_worker_path(worker) if can? :update, worker %></td>
+          <td><%= link_to_destroy worker if can? :destroy, worker %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @workers %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.workers.new', default: :'label.new'),
+    new_worker_path, class: 'btn btn-primary'
+  ) if can? :create, Worker %>
+</div>
