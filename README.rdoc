@@ -1,19 +1,10 @@
-= X0Y0
+= Shifter
 
-Skeleton project
-
-All you have to do for start using it is change all the X0Y0 (and x0y0) strings
-with the name of your application...
-
-=== Build Status {<img src="https://secure.travis-ci.org/Shelvak/x0y0.png"/>}[http://travis-ci.org/Shelvak/x0y0]
-
-=== Dependency Status {<img src="https://gemnasium.com/Shelvak/x0y0.png?travis"/>}[https://gemnasium.com/Shelvak/x0y0]
-
-=== Code Status {<img src="https://codeclimate.com/github/Shelvak/x0y0.png"/>}[https://codeclimate.com/github/Shelvak/x0y0]
+A basic shifts control
 
 == (The MIT License)
 
-Copyleft (ɔ) 2014 Néstor Coppi
+Copyleft (ɔ) 2015 Néstor Coppi
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
