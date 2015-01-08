@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     collection do
       get :autocomplete_for
     end
+    member do
+      get :new_allotment
+      post :create_allotment
+    end
   end
 
   devise_for :users

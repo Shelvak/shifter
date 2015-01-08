@@ -5,6 +5,7 @@ class Worker < ActiveRecord::Base
   validates :name, :last_name, :identification, presence: true
 
   has_many :shifts
+  has_many :allotments, foreign_key: :owner_id
 
   def to_s
     [last_name, name].join(', ')

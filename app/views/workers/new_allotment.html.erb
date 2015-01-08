@@ -1,0 +1,17 @@
+<%= simple_form_for(@allotment, url: create_allotment_worker_path(@worker)) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <h3><%= @worker %></h3>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :place %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions well well-sm">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

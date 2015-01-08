@@ -1,5 +1,5 @@
 class WorkersController < ApplicationController
-  before_action :set_worker, only:  [:show, :edit, :update, :destroy]
+  before_action :set_worker, except: [:index, :new, :create, :autocomplete_for]
   before_action :authenticate_user!
 
   check_authorization
@@ -70,6 +70,20 @@ class WorkersController < ApplicationController
     end
   end
 
+  def new_allotment
+    @allotment = @worker.allotments.build
+  end
+
+  def create_allotment
+    @allotment = @worker.allotments.build(allotment_params)
+
+    if @allotment.save
+      redirect_to @worker, notice: t('view.workers.allotment.correctly_created')
+    else
+      render action: 'new_allotment'
+    end
+  end
+
   private
 
     def set_worker
@@ -81,5 +95,9 @@ class WorkersController < ApplicationController
         :name, :last_name, :identification, :address, :phone, :occupation,
         :observations
       )
+    end
+
+    def allotment_params
+      params.require(:allotment).permit(:place)
     end
 end

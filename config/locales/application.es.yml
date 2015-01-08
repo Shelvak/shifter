@@ -2,6 +2,8 @@
 es:
   activerecord:
     attributes:
+      allotment:
+        place: "Lote"
       shift:
         kind: "Tipo de relevo"
         worker_id: "Trabajador"
@@ -25,6 +27,9 @@ es:
         occupation: "Rubro/Ocupación"
         phone: "Teléfono"
     models:
+      allotment:
+        one: "Lote"
+        other: "Lotes"
       shift:
         one: "Turnos"
         other: "Turnos"
@@ -100,6 +105,9 @@ es:
       update_password: "Actualizar contraseña"
       update_profile: "Actualizar datos"
     workers:
+      allotment:
+        correctly_created: "Lote Creado"
+        new: "Nuevo Lote"
       correctly_created: "Trabajador agregado correctamente."
       correctly_updated: "Trabajador actualizado correctamente."
       edit_title: "Modificar Trabajador"
