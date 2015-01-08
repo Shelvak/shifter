@@ -25,6 +25,10 @@
     <strong><%= Worker.human_attribute_name 'occupation' %></strong>:
     <%= @worker.occupation %>
   </p>
+  <p>
+    <strong><%= Worker.human_attribute_name 'observations' %></strong>:
+    <%= simple_format @worker.observations %>
+  </p>
 </div>
 
 <div class="form-actions well well-sm">

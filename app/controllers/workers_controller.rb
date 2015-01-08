@@ -77,6 +77,9 @@ class WorkersController < ApplicationController
     end
 
     def worker_params
-      params.require(:worker).permit(:name, :last_name, :identification, :address, :phone, :occupation)
+      params.require(:worker).permit(
+        :name, :last_name, :identification, :address, :phone, :occupation,
+        :observations
+      )
     end
 end

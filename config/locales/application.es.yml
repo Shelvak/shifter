@@ -21,6 +21,7 @@ es:
         identification: "DNI/Identificación"
         last_name: "Apellido"
         name: "Nombre"
+        observations: "Observaciones"
         occupation: "Rubro/Ocupación"
         phone: "Teléfono"
     models:

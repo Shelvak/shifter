@@ -2,7 +2,7 @@ jQuery ($)->
   $(document).on 'change', 'input.autocomplete-field', ->
     if /^\s*$/.test($(this).val())
       $(this).next('input.autocomplete-id:first').val('')
-      
+
   $(document).on 'focus', 'input.autocomplete-field:not([data-observed])', ->
     input = $(this)
 
@@ -16,10 +16,11 @@ jQuery ($)->
             response $.map data, (item)->
               content = $('<div></div>')
 
+              if item.informal
+                content.append $('<span class="badge badge-info"></span>').text(item.informal)
+
               content.append $('<span class="title"></span>').text(item.label)
 
-              if item.informal
-                content.append $('<small></small>').text(item.informal)
 
               { label: content.html(), value: item.label, item: item }
       type: 'get'
