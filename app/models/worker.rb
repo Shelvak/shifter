@@ -4,8 +4,10 @@ class Worker < ActiveRecord::Base
 
   validates :name, :last_name, :identification, presence: true
 
+  has_many :shifts
+
   def to_s
-    [:last_name, :name].join(', ')
+    [last_name, name].join(', ')
   end
 
   alias_method :label, :to_s

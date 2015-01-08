@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :workers
+
+  resources :shifts, except: [:show]
+  resources :workers do
+    collection do
+      get :autocomplete_for
+    end
+  end
 
   devise_for :users
 

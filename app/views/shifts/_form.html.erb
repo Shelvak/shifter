@@ -1,0 +1,30 @@
+<%= simple_form_for(@shift) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-5">
+        <%= f.label :worker_id %>
+        <%= f.input :auto_worker_name, label: false, input_html: {
+          value: @shift.worker, class: 'autocomplete-field',
+          data: {
+            'autocomplete-id-target' => '#shift_worker_id',
+            'autocomplete-url' => autocomplete_for_workers_path(format: :json)
+          }
+        } %>
+        <%= f.input :worker_id, as: :hidden,
+          input_html: { class: 'autocomplete-id' } %>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+        <%= radio_buttons_for_kind_shift(f) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions well well-sm">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

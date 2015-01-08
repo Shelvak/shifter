@@ -62,7 +62,7 @@ class WorkersController < ApplicationController
     redirect_to workers_url, notice: t('view.workers.correctly_destroyed')
   end
 
-  def autocomplete
+  def autocomplete_for
     workers = Worker.filtered_list(params[:q]).limit(5)
 
     respond_to do |format|

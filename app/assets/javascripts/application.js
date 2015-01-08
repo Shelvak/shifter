@@ -22,3 +22,4 @@
 //= require endless_pagination
 //= require mobile
 //= require users
+//= require autocomplete

@@ -17,6 +17,9 @@
           <%= show_menu_link(
             name: 'workers', controllers: 'workers', path: workers_path
           ) if can?(:read, Worker) %>
+          <%= show_menu_link(
+            name: 'shifts', controllers: 'shifts', path: shifts_path
+          ) if can?(:read, Shift) %>
         </ul>
         <%= render partial: 'shared/nav_search' %>
         <ul class="nav navbar-nav navbar-right">

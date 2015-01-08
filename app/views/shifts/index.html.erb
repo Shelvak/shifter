@@ -1,0 +1,39 @@
+<% if @shifts.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <% if @worker %>
+    <h4><%= t('view.shifts.filtered_by', name: @worker) %></h4>
+  <% end %>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Shift.human_attribute_name 'created_at' %></th>
+        <th><%= Shift.human_attribute_name 'worker_id' %></th>
+        <th><%= Shift.human_attribute_name 'kind' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= l shift.created_at, format: :minimal %></td>
+          <td><%= link_to shift.worker, shifts_path(worker_id: shift.worker_id) %></td>
+          <td><%= translate_shift_kind shift.kind_to_s %></td>
+          <td><%= link_to_show shift.worker %></td>
+          <td><%= link_to_edit edit_shift_path(shift) if can? :update, shift %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @shifts %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.shifts.new', default: :'label.new'),
+    new_shift_path, class: 'btn btn-primary'
+  ) if can? :create, Shift %>
+</div>

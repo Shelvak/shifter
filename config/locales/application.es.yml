@@ -2,6 +2,9 @@
 es:
   activerecord:
     attributes:
+      shift:
+        kind: "Tipo de relevo"
+        worker_id: "Trabajador"
       user:
         email: "Correo"
         lastname: "Apellido"
@@ -21,6 +24,9 @@ es:
         occupation: "Rubro/Ocupación"
         phone: "Teléfono"
     models:
+      shift:
+        one: "Turnos"
+        other: "Turnos"
       user:
         one: "Usuario"
         other: "Usuarios"
@@ -48,6 +54,7 @@ es:
   menu:
     actions:
       logout: "Salir de la aplicación"
+    shifts: "Turnos"
     users: "Usuarios"
     workers: "Trabajadores"
   messages:
@@ -59,6 +66,20 @@ es:
       empty_search:
         title:
           html: "La búsqueda de <span class=\"label label-inverse\">%{search}</span> no obtuvo ningún resultado."
+    shifts:
+      correctly_created: "Turno agregado correctamente."
+      correctly_updated: "Turno actualizado correctamente."
+      edit_title: "Modificar Turno"
+      empty_index:
+        html: 'No se ha creado ningún Turno hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo Turno</span>'
+      filtered_by: "Filtrado por %{name}"
+      index_title: "Listado de Turno"
+      kind_in: "Entrada"
+      kind_out: "Salida"
+      new: "Nuevo Turno"
+      new_title: "Nuevo Turno"
+      show_title: "Detalle de Turno"
+      stale_object_error: "El Turno no pudo ser actualizado, intente nuevamente."
     users:
       correctly_created: "Usuario agregado correctamente."
       correctly_updated: "Usuario actualizado correctamente."
