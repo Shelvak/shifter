@@ -5,7 +5,7 @@ gem 'rails', '4.1.4'
 gem 'pg'
 gem 'kaminari'
 gem 'simple_form'
-gem 'paper_trail'
+gem 'paper_trail', '3.0.6'
 gem 'magick_columns'
 gem 'validates_timeliness'
 
