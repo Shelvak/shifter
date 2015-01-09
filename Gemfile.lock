@@ -60,6 +60,7 @@ GEM
     coffee-script-source (1.7.1)
     colorize (0.7.3)
     connection_pool (2.0.0)
+    daemon_controller (1.2.0)
     daemons (1.1.9)
     database_cleaner (1.4.0)
     devise (3.2.4)
@@ -110,6 +111,10 @@ GEM
     paper_trail (3.0.6)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
+    passenger (4.0.57)
+      daemon_controller (>= 1.2.0)
+      rack
+      rake (>= 0.8.1)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -215,6 +220,7 @@ DEPENDENCIES
   kaminari-bootstrap
   magick_columns
   paper_trail (= 3.0.6)
+  passenger
   pg
   rails (= 4.1.4)
   role_model
