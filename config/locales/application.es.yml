@@ -26,6 +26,7 @@ es:
         observations: "Observaciones"
         occupation: "Rubro/Ocupación"
         phone: "Teléfono"
+        parent_id: "Propietario"
     models:
       allotment:
         one: "Lote"

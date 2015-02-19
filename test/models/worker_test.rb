@@ -38,4 +38,14 @@ class WorkerTest < ActiveSupport::TestCase
       assert_equal_messages @worker, attr, :blank
     end
   end
+
+  test 'validates uniq attributes' do
+    new_worker = Worker.new Fabricate.attributes_for(
+      :worker, identification: @worker.identification
+    )
+
+    assert new_worker.invalid?
+    assert_equal 1, new_worker.errors.size
+    assert_equal_messages new_worker, :identification, :taken
+  end
 end
