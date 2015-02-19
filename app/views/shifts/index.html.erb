@@ -1,3 +1,19 @@
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-3">
+    <h2><%= link_to 'Entrada',
+      new_shift_path(kind: false), class: 'btn btn-primary btn-lg' %></h2>
+  </div>
+  <div class="col-md-3">
+    <h2><%= link_to 'Salida',
+      new_shift_path(kind: true), class: 'btn btn-primary btn-lg' %></h2>
+  </div>
+</div>
+
+<br />
+<br />
+
 <% if @shifts.empty? %>
   <%= render 'shared/empty_index' %>
 <% else %>
@@ -32,8 +48,4 @@
 <% end %>
 
 <div class="form-actions well well-sm">
-  <%= link_to(
-    t('view.shifts.new', default: :'label.new'),
-    new_shift_path, class: 'btn btn-primary'
-  ) if can? :create, Shift %>
 </div>

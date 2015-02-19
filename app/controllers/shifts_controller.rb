@@ -21,7 +21,7 @@ class ShiftsController < ApplicationController
   # GET /shifts/new
   def new
     @title = t('view.shifts.new_title')
-    @shift = Shift.new
+    @shift = Shift.new(kind: params[:kind])
   end
 
   # GET /shifts/1/edit

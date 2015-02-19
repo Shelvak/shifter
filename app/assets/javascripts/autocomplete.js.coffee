@@ -13,14 +13,15 @@ jQuery ($)->
           dataType: 'json'
           data: { q: request.term }
           success: (data)->
+            if data.length == 0
+              data = [ { label: 'No encontrado' }]
+
             response $.map data, (item)->
               content = $('<div></div>')
-
               if item.informal
                 content.append $('<span class="badge badge-info"></span>').text(item.informal)
 
               content.append $('<span class="title"></span>').text(item.label)
-
 
               { label: content.html(), value: item.label, item: item }
       type: 'get'

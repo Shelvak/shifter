@@ -6,7 +6,7 @@ es:
         place: "Lote"
       shift:
         kind: "Tipo de relevo"
-        worker_id: "Trabajador"
+        worker_id: "Persona"
       user:
         email: "Correo"
         lastname: "Apellido"
@@ -31,14 +31,14 @@ es:
         one: "Lote"
         other: "Lotes"
       shift:
-        one: "Turnos"
-        other: "Turnos"
+        one: "Entrada/Salida"
+        other: "Entrada/Salida"
       user:
         one: "Usuario"
         other: "Usuarios"
       worker:
-        one: "Trabajador"
-        other: "Trabajadores"
+        one: "Persona"
+        other: "Personas"
   app_name: "Shifter"
   attributes:
     created_at: "Creación"
@@ -60,9 +60,9 @@ es:
   menu:
     actions:
       logout: "Salir de la aplicación"
-    shifts: "Turnos"
+    shifts: "Entrada/Salida"
     users: "Usuarios"
-    workers: "Trabajadores"
+    workers: "Personas"
   messages:
     confirmation: "¿Está seguro?"
   view:
@@ -73,19 +73,19 @@ es:
         title:
           html: "La búsqueda de <span class=\"label label-inverse\">%{search}</span> no obtuvo ningún resultado."
     shifts:
-      correctly_created: "Turno agregado correctamente."
-      correctly_updated: "Turno actualizado correctamente."
-      edit_title: "Modificar Turno"
+      correctly_created: "Entrada/Salida agregado correctamente."
+      correctly_updated: "Entrada/Salida actualizado correctamente."
+      edit_title: "Modificar Entrada/Salida"
       empty_index:
-        html: 'No se ha creado ningún Turno hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo Turno</span>'
+        html: 'No se ha creado ningún Entrada/Salida hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo Entrada/Salida</span>'
       filtered_by: "Filtrado por %{name}"
-      index_title: "Listado de Turno"
+      index_title: "Listado de Entrada/Salida"
       kind_in: "Entrada"
       kind_out: "Salida"
-      new: "Nuevo Turno"
-      new_title: "Nuevo Turno"
-      show_title: "Detalle de Turno"
-      stale_object_error: "El Turno no pudo ser actualizado, intente nuevamente."
+      new: "Nuevo Entrada/Salida"
+      new_title: "Nuevo Entrada/Salida"
+      show_title: "Detalle de Entrada/Salida"
+      stale_object_error: "Entrada/Salida no pudo ser actualizado, intente nuevamente."
     users:
       correctly_created: "Usuario agregado correctamente."
       correctly_updated: "Usuario actualizado correctamente."
@@ -108,13 +108,13 @@ es:
       allotment:
         correctly_created: "Lote Creado"
         new: "Nuevo Lote"
-      correctly_created: "Trabajador agregado correctamente."
-      correctly_updated: "Trabajador actualizado correctamente."
-      edit_title: "Modificar Trabajador"
+      correctly_created: "Persona agregado correctamente."
+      correctly_updated: "Persona actualizado correctamente."
+      edit_title: "Modificar Persona"
       empty_index:
-        html: 'No se ha creado ningún Trabajador hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo Trabajador</span>'
-      index_title: "Listado de Trabajadores"
-      new: "Nuevo Trabajador"
-      new_title: "Nuevo Trabajador"
-      show_title: "Detalle de Trabajador"
-      stale_object_error: "El Trabajador no pudo ser actualizado, intente nuevamente."
+        html: 'No se ha creado ningún Persona hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo Persona</span>'
+      index_title: "Listado de Personas"
+      new: "Nuevo Persona"
+      new_title: "Nuevo Persona"
+      show_title: "Detalle de Persona"
+      stale_object_error: "El Persona no pudo ser actualizado, intente nuevamente."
