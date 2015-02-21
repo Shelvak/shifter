@@ -1,13 +1,23 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th class="text-center"><%= Allotment.model_name.human.pluralize %></th>
+      <th colspan="2" class="text-center"><%= Allotment.model_name.human.pluralize %></th>
     </tr>
   </thead>
   <tbody>
-    <% @worker.allotments.each do |allotment| %>
+    <% @worker.all_allotments.each do |allotment| %>
       <tr>
-        <td class="text-center"><%= allotment.place %></td>
+        <td class="text-center">
+          <% unless (owner = allotment.owner) == @worker %>
+            <%= link_to owner, owner %>:
+          <% end %>
+          <%= allotment.place %>
+        </td>
+        <td>
+          <%= link_to_destroy(
+            destroy_allotment_worker_path(@worker, place_id: allotment.id)
+          ) if owner == @worker %>
+        </td>
       </tr>
     <% end %>
   </tbody>

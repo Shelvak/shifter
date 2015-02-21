@@ -33,7 +33,7 @@ module ApplicationHelper
     opts = args.extract_options!
 
     opts['data-show-tooltip'] ||= true
-    opts['title'] ||= options['title']
+    opts.merge!(options.except('icon'))
 
     link_to *args, opts do
       content_tag :span, nil, class: "glyphicon #{options['icon']}"

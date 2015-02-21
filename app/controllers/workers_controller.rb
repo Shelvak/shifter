@@ -1,5 +1,7 @@
 class WorkersController < ApplicationController
-  before_action :set_worker, except: [:index, :new, :create, :autocomplete_for]
+  before_action :set_worker, except: [
+    :index, :new, :create, :autocomplete_for
+  ]
   before_action :authenticate_user!
 
   check_authorization
@@ -84,6 +86,14 @@ class WorkersController < ApplicationController
     end
   end
 
+  def destroy_allotment
+    allotment = @worker.allotments.find(params[:place_id])
+
+    # TODO hacerlo mas bonito
+    notice = allotment.destroy ? { notice: 'Ok' } : { alert: 'No se pudo eliminar' }
+    redirect_to @worker, notice
+  end
+
   private
 
     def set_worker
@@ -93,7 +103,8 @@ class WorkersController < ApplicationController
     def worker_params
       params.require(:worker).permit(
         :name, :last_name, :identification, :address, :phone, :occupation,
-        :observations, :auto_worker_name, :parent_id
+        :observations, :auto_worker_name, :parent_id, :auto_parent_name,
+        allotments_attributes: [:id, :place]
       )
     end
 

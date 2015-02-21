@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       get :new_allotment
       post :create_allotment
+      delete :destroy_allotment
     end
   end
 

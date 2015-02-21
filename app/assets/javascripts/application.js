@@ -23,3 +23,4 @@
 //= require mobile
 //= require users
 //= require autocomplete
+//= require workers

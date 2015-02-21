@@ -11,6 +11,8 @@
         <%= f.input :address %>
         <%= f.input :phone %>
         <%= f.input :observations %>
+      </div>
+      <div class="col-md-6">
         <%= f.label :parent_id %>
         <%= f.input :auto_parent_name, label: false, input_html: {
           value: @worker.parent, class: 'autocomplete-field',
@@ -21,6 +23,11 @@
         } %>
         <%= f.input :parent_id, as: :hidden,
           input_html: { class: 'autocomplete-id' } %>
+
+        <% @worker.allotments.build unless @worker.allotments.any? %>
+        <%= f.simple_fields_for :allotments do |af| %>
+          <%= af.input :place, input_html: { data: { place_for_parent: true } } %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -30,3 +37,7 @@
     <%= f.button :submit, class: 'btn-primary' %>
   </div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  Worker.placeWithParent.init()
+</script>

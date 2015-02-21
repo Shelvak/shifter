@@ -27,6 +27,12 @@
         <strong><%= Worker.human_attribute_name 'occupation' %></strong>:
         <%= @worker.occupation %>
       </p>
+      <% if (parent = @worker.parent) %>
+        <p>
+          <strong><%= Worker.human_attribute_name 'parent_id' %></strong>:
+          <%= link_to parent, parent %>
+        </p>
+      <% end %>
       <p>
         <%= render 'allotments' %>
       </p>

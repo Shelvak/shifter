@@ -14,12 +14,15 @@ jQuery ($)->
           data: { q: request.term }
           success: (data)->
             if data.length == 0
-              data = [ { label: 'No encontrado' }]
+              data = [ { label: '  ', informal: 'No encontrado' }]
 
             response $.map data, (item)->
               content = $('<div></div>')
               if item.informal
                 content.append $('<span class="badge badge-info"></span>').text(item.informal)
+
+              if item.places
+                Worker.parentPlaces = item.places
 
               content.append $('<span class="title"></span>').text(item.label)
 
