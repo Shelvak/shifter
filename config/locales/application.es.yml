@@ -7,6 +7,7 @@ es:
       shift:
         kind: "Tipo de relevo"
         worker_id: "Persona"
+        auto_worker_name: "Persona"
       user:
         email: "Correo"
         lastname: "Apellido"

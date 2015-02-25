@@ -4,17 +4,7 @@
 window.Worker = {
   'placeWithParent': ( ->
     disableWithPlace = ->
-      placeInput = $('[data-place-for-parent]')
-      autocompleteValue = $('#worker_parent_id').val()
-
-      if autocompleteValue != ''
-        disabled = true
-        placeInput.val(Worker.parentPlaces)
-      else
-        disabled = false
-
-      placeInput.prop('disabled', disabled)
-
+      $('[data-place-for-parent]').html(Worker.parentPlaces || '')
 
     bind = ->
       $(document).on 'autocomplete:update', disableWithPlace

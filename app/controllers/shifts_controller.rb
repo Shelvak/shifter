@@ -15,7 +15,7 @@ class ShiftsController < ApplicationController
       @shifts = @worker.shifts
     end
 
-    @shifts = @shifts.page(params[:page])
+    @shifts = @shifts.order(created_at: :desc).page(params[:page])
   end
 
   # GET /shifts/new

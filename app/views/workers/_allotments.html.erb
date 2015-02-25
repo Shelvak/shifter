@@ -5,18 +5,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @worker.all_allotments.each do |allotment| %>
+    <% @worker.allotments.each do |allotment| %>
       <tr>
         <td class="text-center">
-          <% unless (owner = allotment.owner) == @worker %>
-            <%= link_to owner, owner %>:
-          <% end %>
           <%= allotment.place %>
         </td>
         <td>
           <%= link_to_destroy(
             destroy_allotment_worker_path(@worker, place_id: allotment.id)
-          ) if owner == @worker %>
+          ) %>
         </td>
       </tr>
     <% end %>

@@ -24,6 +24,7 @@
         <%= f.input :parent_id, as: :hidden,
           input_html: { class: 'autocomplete-id' } %>
 
+        <span data-place-for-parent="true"><%= @worker.parent_places_to_s %></span>
         <% @worker.allotments.build unless @worker.allotments.any? %>
         <%= f.simple_fields_for :allotments do |af| %>
           <%= af.input :place, input_html: { data: { place_for_parent: true } } %>

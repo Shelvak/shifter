@@ -6,6 +6,7 @@ class Worker < ActiveRecord::Base
 
   validates :name, :last_name, :identification, presence: true
   validates :identification, uniqueness: true
+  validate :validate_parent_places
 
   has_many :shifts
   has_many :allotments, foreign_key: :owner_id
@@ -34,29 +35,36 @@ class Worker < ActiveRecord::Base
   end
 
   def places
-    all_allotments.map(&:place).join(' || ')
+    allotments.places
   end
 
   def self.filtered_list(query)
     query.present? ? magick_search(query) : all
   end
 
-  def all_allotments
-    _allotments = allotments.to_a
-
-    parents.map { |p| _allotments << p.allotments.to_a }
-
-    _allotments.flatten.uniq
+  def parent_places
+    parent.places if parent
   end
 
-  def parents
-    _parents = []
-
-    if parent
-      _parents << parent
-      _parents << parent.parents
+  def parent_places_to_s
+    if (pp = parent_places)
+      "Lugares permitidos: \n #{pp}"
     end
-
-    _parents.flatten
   end
+
+  private
+
+    def validate_parent_places
+      if parent
+        _parent_places = parent.allotments.map(&:place)
+
+        allotments.each do |p|
+          unless _parent_places.include?(p.place.strip)
+            self.errors.add(:base, "#{p} no está incluido en los lugares del propietario")
+          end
+        end
+
+        self.errors.add(:base, "Debe cargar uno de los lugares del propietario") if allotments.empty?
+      end
+    end
 end

@@ -3,7 +3,7 @@ class Shift < ActiveRecord::Base
 
   attr_accessor :auto_worker_name
 
-  validates :worker_id, :auto_worker_name, presence: true
+  validate :validate_worker_presence
 
   belongs_to :worker
 
@@ -17,4 +17,10 @@ class Shift < ActiveRecord::Base
   def kind_to_s
     kind ? 'out' : 'in'
   end
+
+  private
+
+    def validate_worker_presence
+      self.errors.add(:auto_worker_name, :blank) if worker_id.blank?
+    end
 end

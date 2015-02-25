@@ -14,7 +14,7 @@ jQuery ($)->
           data: { q: request.term }
           success: (data)->
             if data.length == 0
-              data = [ { label: '  ', informal: 'No encontrado' }]
+              data = [ { label: ' ', informal: 'No encontrado', places: '' }]
 
             response $.map data, (item)->
               content = $('<div></div>')
