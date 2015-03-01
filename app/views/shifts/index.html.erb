@@ -14,9 +14,7 @@
 <br />
 <br />
 
-<% if @shifts.empty? %>
-  <%= render 'shared/empty_index' %>
-<% else %>
+<% if @shifts.any? %>
   <% if @worker %>
     <h4><%= t('view.shifts.filtered_by', name: @worker) %></h4>
   <% end %>
